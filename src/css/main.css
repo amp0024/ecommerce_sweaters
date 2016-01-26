@@ -1,1 +1,14 @@
 /* add custom styles */
+
+
+.remove {
+  display: none !important;
+}
+
+.removeColor {
+  display: none !important;
+}
+
+.removeOccasion {
+  display: none !important;
+}
