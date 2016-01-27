@@ -98,8 +98,83 @@ function imageBack() {
 
 });
 
+$('#button').on("click", function(){
+  var shipInput = $('.shipping')
+  var billInput = $('.billing')
+  for(var i =0; i<shipInput.length; i++){
+        var shipId = shipInput[i].id;
+        var billId = billInput[i].id;
+        console.log("ship id is : " + shipId);
+        console.log("Bill id is:  " + billId);
+        getVal(shipId, billId);
+  }    
+})
 
 
+function getVal(shipping, billing){
+  var add1 = $('#' + shipping);
+  var add2 = $('#' + billing);
+  add2.val(add1.val());
+
+}
+
+
+
+//credit card validator
+
+$(document).on('ready', function() {
+  Stripe.setPublishableKey('pk_test_X4M8qCjXiLmF5jzHL5tMnSy6');
+});
+
+$('.order').on('click', function(){
+var cardInfo = {
+  number: $('.card-number').val(),
+  cvc: $('.card-cvc').val(),
+  exp_month: $('.card-expiry').val().split('/')[0],
+  exp_year: $('.card-expiry').val().split('/')[1]
+};
+
+Stripe.card.createToken(cardInfo, stripeResponseHandler);
+
+});
+
+$('.card-number').on('blur', function(){
+  var cardNum = $('.card-number')
+  if(!Stripe.card.validateCardNumber(cardNum.val())){
+    cardNum.css('border','2px solid #b94a48', 'box-shadow','inset 0 3px 3px');
+  }else{
+    cardNum.css('border','2px solid #468847', 'box-shadow','inset 0 3px 3px');
+  }
+
+});
+
+$('.card-cvc').on('blur', function(){
+  var cardC = $('.card-cvc')
+  if(!Stripe.card.validateCVC(cardC.val())){
+    cardC.css('border','2px solid #b94a48', 'box-shadow','inset 0 3px 3px');
+  }else{
+    cardC.css('border','2px solid #468847', 'box-shadow','inset 0 3px 3px');
+  }
+
+});
+
+$('.card-expiry').on('blur', function(){
+  var cardEx = $('.card-expiry')
+  if(!Stripe.card.validateExpiry(cardEx.val())){
+    cardEx.css('border','2px solid #b94a48', 'box-shadow','inset 0 3px 3px');
+  }else{
+    cardEx.css('border','2px solid #468847', 'box-shadow','inset 0 3px 3px');
+  }
+
+});
+
+function stripeResponseHandler(status, response){
+  if (response.error){
+    console.log(response.error.message);
+  }else{
+    console.log(response);
+  }
+}
 
 
 
