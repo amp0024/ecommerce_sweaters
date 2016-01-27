@@ -29,3 +29,6 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+.footnav {
+  list-style: none;
+}
