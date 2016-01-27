@@ -48,15 +48,12 @@ $("#allOccasions").on('click', function(){
 $(document).on('ready', function() {
 
 var images = [
- '1200x500?text=Image%201',
- '1200x500?text=Image%202',
- '1200x500?text=Image%203',
- '1200x500?text=Image%204',
- '1200x500?text=Image%205',
+ '..//src/img/car/car_2.png',
+ '..//src/img/car/car_1.png',
 ];
 
 images.forEach(function(img, i) {
-  var imgURI = "http://placehold.it/" + img;
+  var imgURI = img;
   console.log(imgURI);
   var imgName = "image-" + (i+1);
   var imgDiv = "<div class= "+imgName+"></div>"
@@ -68,7 +65,7 @@ var current = $('.carousel-images > div');
 $('#forward').on('click', imageIterator);
 $('#back').on('click', imageBack);
 
-setInterval(imageIterator, 1000);
+setInterval(imageIterator, 5000);
 
 function imageIterator() {
   $('div').css('z-index', '0');
