@@ -1,0 +1,36 @@
+/* add custom styles */
+
+
+.remove {
+  display: none !important;
+}
+
+.removeColor {
+  display: none !important;
+}
+
+.removeOccasion {
+  display: none !important;
+}
+
+
+.carousel-images {
+  position:  relative;
+  height: 500px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.carousel-images div[class^="image"] {
+  background-position: 50%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footnav {
+  list-style: none;
+}
+
