@@ -49,8 +49,9 @@ $(document).on('ready', function() {
 
 var images = [
 
- '..//src/img/car/car_2.png',
- '..//src/img/car/car_1.png',
+ '/img/car/car_2.png',
+ '/img/car/car_2.png',
+ '/img/car/car_1.png',
 ];
 
 images.forEach(function(img, i) {
