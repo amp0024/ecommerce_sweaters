@@ -105,7 +105,7 @@ $('#button').on("click", function(){
         console.log("ship id is : " + shipId);
         console.log("Bill id is:  " + billId);
         getVal(shipId, billId);
-  }    
+  }
 })
 
 
@@ -173,6 +173,29 @@ function stripeResponseHandler(status, response){
     console.log(response);
   }
 }
+
+/////////////////////email validator//////////////////
+
+function ValidateEmail(mail)   {
+  var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+ if(mail.match(mailFormat)) {
+    return (true);
+  }
+    return (false);
+}
+
+
+
+$('.email').on('blur', function() {
+  console.log('blur');
+  var customerEmail = $('.email')
+  if(!ValidateEmail(customerEmail.val())) {
+    customerEmail.css('border','2px solid #b94a48', 'box-shadow','inset 0 3px 3px');
+  }else{
+    customerEmail.css('border','2px solid #468847', 'box-shadow','inset 0 3px 3px');
+  }
+});
+
 
 
 
